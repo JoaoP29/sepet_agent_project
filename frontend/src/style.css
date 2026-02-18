@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ── SEPET Design System ───────────────────── */
+@theme {
+  --color-sepet-primary: #0d9488;
+  --color-sepet-primary-dark: #0f766e;
+  --color-sepet-primary-light: #5eead4;
+  --color-sepet-secondary: #6366f1;
+  --color-sepet-secondary-dark: #4f46e5;
+  --color-sepet-accent: #f59e0b;
+  --color-sepet-bg: #0f172a;
+  --color-sepet-surface: #1e293b;
+  --color-sepet-surface-light: #334155;
+  --color-sepet-text: #f1f5f9;
+  --color-sepet-text-muted: #94a3b8;
+  --color-sepet-danger: #ef4444;
+  --color-sepet-success: #22c55e;
+  --color-sepet-warning: #f59e0b;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-sepet-bg);
+  color: var(--color-sepet-text);
+  min-height: 100vh;
+}
+
+/* ── Glassmorphism Card ──────────────────────── */
+.glass-card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Smooth transitions ──────────────────────── */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ── Custom scrollbar ────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-sepet-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sepet-surface-light);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sepet-primary);
+}
