@@ -4,5 +4,4 @@ supabase
 pydantic
 python-dotenv
 openai
-crewai
 langchain-openai
