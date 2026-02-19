@@ -23,7 +23,7 @@ Sistema web para gerenciamento de agendamentos de castração de animais, com tr
 | **Backend** | [Python 3.12](https://python.org) + [FastAPI](https://fastapi.tiangolo.com) |
 | **Frontend** | [Vue 3](https://vuejs.org) + [Tailwind CSS 4](https://tailwindcss.com) + [Vite](https://vite.dev) |
 | **Banco de Dados** | [Supabase](https://supabase.com) (PostgreSQL gerenciado)       |
-| **IA / LLM** | [MiniMax API](https://www.minimaxi.com) (compatível com OpenAI SDK) |
+| **IA / LLM** | [LangChain](https://python.langchain.com) + [MiniMax API](https://www.minimaxi.com) (via `ChatOpenAI`) |
 | **HTTP Client** | [Axios](https://axios-http.com)                                |
 
 ---
@@ -72,15 +72,21 @@ sepet_agent_project/
 
 ---
 
-## 🤖 Agente de IA — Analista Clínico
+## 🤖 Multi-Agente de IA — Analista Clínico
 
-O sistema utiliza um **agente de IA** que atua como analista clínico veterinário:
+O sistema utiliza um **pipeline multi-agente** orquestrado por **LangChain** com 3 etapas sequenciais:
 
-1. Recebe os dados do animal e as respostas da triagem (19 perguntas).
-2. Envia para a **API MiniMax** com um prompt especializado em avaliação veterinária.
-3. Retorna um **parecer técnico** em JSON com:
-   - `alerta_risco` — booleano indicando se há risco para o procedimento.
-   - `parecer_ia` — texto descritivo com a avaliação completa.
+```
+Dados da Triagem  →  🔍 Lupa (Analista)  →  ⚖️ Juiz (Verificador)  →  📝 Relator (Redator)  →  JSON final
+```
+
+| Agente | Papel | Responsabilidade |
+|--------|-------|------------------|
+| **Lupa** | Analista de Triagem | Extrai e organiza todos os dados clínicos do animal e as 19 respostas do questionário |
+| **Juiz** | Verificador de Riscos | Analisa os dados extraídos e emite um veredito: ALTO RISCO ou BAIXO RISCO |
+| **Relator** | Redator Clínico | Redige o parecer técnico final em formato JSON (`alerta_risco` + `parecer_ia`) |
+
+Cada agente recebe a saída do anterior via `ChatOpenAI` (LangChain) conectado à **API MiniMax**.
 
 **Critérios de Risco Automáticos:**
 - Tutor não compreendeu o risco anestésico → 🔴 Alto Risco
