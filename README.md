@@ -103,7 +103,7 @@ Cada agente recebe a sa√≠da do anterior via `ChatOpenAI` (LangChain) conectado √
 - **Python** 3.12 ou superior (recomendado: 3.12)
 - **Node.js** 18 ou superior
 - **npm** 9 ou superior
-- Conta no **Supabase** com as tabelas `agendamentos` e `triagens` criadas
+- Conta no **Supabase** com as tabelas `agendamentos`, `triagens` e `tenants` criadas
 - Chave de API da **MiniMax**
 
 ---
