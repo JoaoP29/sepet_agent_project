@@ -4,6 +4,7 @@ from app.database import get_supabase
 from app.dependencies import get_tenant_id
 from app.models import AgendamentoCreate, AgendamentoResponse
 from app.config import SEPET_ENDERECO
+from app.agents.clinical_analyst import analisar_triagem
 
 logger = logging.getLogger("sepet.agendamentos")
 
@@ -18,6 +19,7 @@ async def criar_agendamento(
     """
     Cria um novo agendamento com os dados do tutor, do pet e da triagem clínica.
     Salva os dados básicos em `agendamentos` e o questionário em `triagens`.
+    Dispara automaticamente a análise de risco por IA.
     """
     db = get_supabase()
 
@@ -74,14 +76,57 @@ async def criar_agendamento(
     }
 
     try:
-        db.table("triagens").insert(triagem_payload).execute()
+        triagem_result = (
+            db.table("triagens").insert(triagem_payload).execute()
+        )
     except Exception as e:
         logger.error(f"Erro ao inserir triagem: {e} | Local: {SEPET_ENDERECO}")
         raise HTTPException(status_code=500, detail=f"Erro ao salvar triagem: {e}")
 
+    triagem_id = triagem_result.data[0]["id"]
+
     logger.info(
-        f"Triagem salva para agendamento {agendamento_id} | Local: {SEPET_ENDERECO}"
+        f"Triagem {triagem_id} salva para agendamento {agendamento_id} | Local: {SEPET_ENDERECO}"
     )
+
+    # 3) Disparar análise de risco por IA automaticamente
+    pet_info = {
+        "pet_nome": dados.nome_animal,
+        "pet_especie": dados.especie,
+        "pet_raca": dados.raca,
+        "pet_porte": dados.porte,
+        "pet_idade_anos": dados.idade_anos,
+        "pet_idade_meses": dados.idade_meses,
+        "pet_sexo": dados.sexo,
+        "pet_peso_kg": dados.peso_kg,
+    }
+
+    try:
+        logger.info(f"Iniciando análise IA para triagem {triagem_id}...")
+        resultado_ia = analisar_triagem(respostas, pet_info)
+
+        # Atualizar triagem com o parecer da IA
+        db.table("triagens").update({
+            "alerta_risco": resultado_ia["alerta_risco"],
+            "parecer_ia": resultado_ia["parecer_ia"],
+        }).eq("id", triagem_id).execute()
+
+        # Atualizar status_ia do agendamento
+        db.table("agendamentos").update({
+            "status_ia": "Analisado",
+        }).eq("id", agendamento_id).execute()
+
+        agendamento["status_ia"] = "Analisado"
+
+        logger.info(
+            f"Análise IA concluída para triagem {triagem_id}: "
+            f"alerta_risco={resultado_ia['alerta_risco']} | Local: {SEPET_ENDERECO}"
+        )
+    except Exception as e:
+        logger.error(
+            f"Erro na análise IA para triagem {triagem_id}: {e} | "
+            f"O agendamento foi salvo, mas o parecer ficará pendente."
+        )
 
     return AgendamentoResponse(**agendamento)
 
