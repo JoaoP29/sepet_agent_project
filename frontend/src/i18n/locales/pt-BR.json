@@ -1,0 +1,152 @@
+{
+    "navbar": {
+        "title": "SEPET",
+        "subtitle": "Sistema de Agendamento de Castração de Pets",
+        "scheduling": "Agendamento",
+        "management": "Gestão"
+    },
+    "scheduling": {
+        "title": "Agendamento de Castração",
+        "subtitle": "Preencha todos os dados para solicitar o procedimento.",
+        "steps": {
+            "data": "Dados",
+            "triage": "Triagem",
+            "authorization": "Autorização"
+        },
+        "tutor": {
+            "title": "👤 Dados do Tutor",
+            "fullName": "Nome Completo",
+            "fullNamePlaceholder": "Nome do tutor",
+            "cpf": "CPF",
+            "cpfPlaceholder": "000.000.000-00",
+            "phone": "Telefone",
+            "phonePlaceholder": "(92) 99999-9999",
+            "email": "E-mail",
+            "emailPlaceholder": "email{'@'}exemplo.com"
+        },
+        "pet": {
+            "title": "🐾 Dados do Pet",
+            "name": "Nome do Pet",
+            "namePlaceholder": "Nome do animal",
+            "species": "Espécie",
+            "breed": "Raça",
+            "breedPlaceholder": "SRD, Labrador, etc.",
+            "size": "Porte",
+            "sex": "Sexo",
+            "weight": "Peso (kg)",
+            "weightPlaceholder": "0",
+            "ageYears": "Idade (anos)",
+            "ageYearsPlaceholder": "0",
+            "ageMonths": "Idade (meses)",
+            "ageMonthsPlaceholder": "0",
+            "desiredDate": "Data Desejada"
+        },
+        "buttons": {
+            "nextTriage": "Próximo → Triagem Clínica",
+            "nextAuth": "Próximo → Autorização",
+            "back": "← Voltar",
+            "confirmSend": "✅ Confirmar e Enviar",
+            "sending": "Enviando...",
+            "newScheduling": "Novo Agendamento"
+        },
+        "success": {
+            "title": "Agendamento Realizado!",
+            "message": "Os dados foram enviados com sucesso. O veterinário analisará a triagem clínica.",
+            "protocol": "Protocolo"
+        },
+        "error": {
+            "generic": "Erro ao enviar. Tente novamente."
+        }
+    },
+    "triage": {
+        "title": "📋 Questionário de Triagem Clínica",
+        "subtitle": "Responda com atenção — este questionário é indispensável para a anestesia.",
+        "clinicalSigns": {
+            "title": "🩺 Sinais Clínicos",
+            "cough": "O animal apresenta tosse?",
+            "sneezing": "O animal apresenta espirro?",
+            "vomiting": "O animal apresenta vômito?",
+            "diarrhea": "O animal apresenta diarréia?",
+            "appetiteLoss": "Houve perda de apetite?",
+            "weightLoss": "Houve perda de peso?",
+            "apathy": "O animal está apático?"
+        },
+        "severeSigns": {
+            "title": "⚠️ Sinais Graves",
+            "fainting": "O animal já desmaiou?",
+            "seizure": "O animal já teve convulsão?",
+            "breathingDifficulty": "Dificuldade para respirar?"
+        },
+        "otherSymptoms": {
+            "title": "🔍 Outros Sintomas",
+            "nasalDischarge": "Secreção nasal?",
+            "ocularDischarge": "Secreção ocular?",
+            "skinLesions": "Lesões de pele?",
+            "allergies": "Alergias conhecidas?"
+        },
+        "history": {
+            "title": "📒 Histórico",
+            "previousSurgery": "Já fez cirurgia anterior?",
+            "currentMedication": "Está em uso de medicação?",
+            "vaccinesUpToDate": "Vacinas estão em dia?",
+            "fasting12h": "Está em jejum de 12 horas?"
+        },
+        "anestheticRisk": {
+            "title": "⚡ Risco Anestésico",
+            "question": "O tutor compreendeu e aceita o risco anestésico?"
+        },
+        "observations": {
+            "label": "📝 Observações adicionais",
+            "placeholder": "Informações relevantes sobre o animal..."
+        }
+    },
+    "authorization": {
+        "title": "Termo de Autorização Cirúrgica",
+        "bodyIntro": "Eu, {tutorName}, portador(a) do CPF {cpf}, na qualidade de tutor(a) responsável pelo animal {petName}, da espécie {species}, raça {breed}, declaro que:",
+        "item1": "Respondi o questionário clínico com veracidade e assumo responsabilidade pelas informações prestadas.",
+        "item2": "Estou ciente de que o questionário de triagem é indispensável para a anestesia e que informações falsas podem colocar a vida do animal em risco.",
+        "item2Highlight": "o questionário de triagem é indispensável para a anestesia",
+        "item3": "Fui informado(a) sobre os riscos inerentes ao procedimento cirúrgico e anestésico, incluindo possíveis complicações.",
+        "item4": "Autorizo a realização do procedimento de esterilização no animal acima identificado.",
+        "checkbox": "Declaro que li, compreendi e concordo com os termos acima."
+    },
+    "management": {
+        "title": "Painel de Gestão",
+        "subtitle": "Visualize agendamentos, triagens e pareceres da IA.",
+        "refresh": "Atualizar",
+        "stats": {
+            "schedulings": "Agendamentos",
+            "riskAlerts": "Alertas de Risco",
+            "aiOpinions": "Pareceres IA"
+        },
+        "empty": "Nenhum agendamento encontrado.",
+        "labels": {
+            "tutor": "Tutor:",
+            "cpf": "CPF:",
+            "date": "Data:",
+            "status": "Status:",
+            "riskAlert": "ALERTA DE RISCO",
+            "viewTriage": "📋 Ver respostas da triagem",
+            "aiOpinion": "🤖 Parecer da IA",
+            "aiPending": "⏳ Parecer da IA pendente"
+        },
+        "booleans": {
+            "yes": "Sim",
+            "no": "Não"
+        },
+        "error": {
+            "generic": "Erro ao carregar dados."
+        }
+    },
+    "common": {
+        "select": "Selecione..."
+    },
+    "routes": {
+        "scheduling": "Agendamento – SEPET",
+        "management": "Gestão – SEPET"
+    },
+    "footer": {
+        "line1": "📧 agendamento{'@'}sepet.am.gov.br · 📞 (92) 99207-1671",
+        "line2": "📍 Av. Umberto Calderaro, 934 – Adrianópolis, Manaus-AM"
+    }
+}

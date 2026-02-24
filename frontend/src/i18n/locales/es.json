@@ -1,0 +1,152 @@
+{
+    "navbar": {
+        "title": "SEPET",
+        "subtitle": "Sistema de Agendamiento de Castración de Mascotas",
+        "scheduling": "Agendamiento",
+        "management": "Gestión"
+    },
+    "scheduling": {
+        "title": "Agendamiento de Castración",
+        "subtitle": "Complete todos los datos para solicitar el procedimiento.",
+        "steps": {
+            "data": "Datos",
+            "triage": "Triaje",
+            "authorization": "Autorización"
+        },
+        "tutor": {
+            "title": "👤 Datos del Tutor",
+            "fullName": "Nombre Completo",
+            "fullNamePlaceholder": "Nombre del tutor",
+            "cpf": "CPF",
+            "cpfPlaceholder": "000.000.000-00",
+            "phone": "Teléfono",
+            "phonePlaceholder": "(92) 99999-9999",
+            "email": "Correo electrónico",
+            "emailPlaceholder": "correo{'@'}ejemplo.com"
+        },
+        "pet": {
+            "title": "🐾 Datos de la Mascota",
+            "name": "Nombre de la Mascota",
+            "namePlaceholder": "Nombre del animal",
+            "species": "Especie",
+            "breed": "Raza",
+            "breedPlaceholder": "Mestizo, Labrador, etc.",
+            "size": "Tamaño",
+            "sex": "Sexo",
+            "weight": "Peso (kg)",
+            "weightPlaceholder": "0",
+            "ageYears": "Edad (años)",
+            "ageYearsPlaceholder": "0",
+            "ageMonths": "Edad (meses)",
+            "ageMonthsPlaceholder": "0",
+            "desiredDate": "Fecha Deseada"
+        },
+        "buttons": {
+            "nextTriage": "Siguiente → Triaje Clínico",
+            "nextAuth": "Siguiente → Autorización",
+            "back": "← Volver",
+            "confirmSend": "✅ Confirmar y Enviar",
+            "sending": "Enviando...",
+            "newScheduling": "Nuevo Agendamiento"
+        },
+        "success": {
+            "title": "¡Agendamiento Realizado!",
+            "message": "Los datos fueron enviados exitosamente. El veterinario analizará el triaje clínico.",
+            "protocol": "Protocolo"
+        },
+        "error": {
+            "generic": "Error al enviar. Intente nuevamente."
+        }
+    },
+    "triage": {
+        "title": "📋 Cuestionario de Triaje Clínico",
+        "subtitle": "Responda con atención — este cuestionario es indispensable para la anestesia.",
+        "clinicalSigns": {
+            "title": "🩺 Signos Clínicos",
+            "cough": "¿El animal presenta tos?",
+            "sneezing": "¿El animal presenta estornudos?",
+            "vomiting": "¿El animal presenta vómito?",
+            "diarrhea": "¿El animal presenta diarrea?",
+            "appetiteLoss": "¿Hubo pérdida de apetito?",
+            "weightLoss": "¿Hubo pérdida de peso?",
+            "apathy": "¿El animal está apático?"
+        },
+        "severeSigns": {
+            "title": "⚠️ Signos Graves",
+            "fainting": "¿El animal se ha desmayado alguna vez?",
+            "seizure": "¿El animal ha tenido convulsiones?",
+            "breathingDifficulty": "¿Dificultad para respirar?"
+        },
+        "otherSymptoms": {
+            "title": "🔍 Otros Síntomas",
+            "nasalDischarge": "¿Secreción nasal?",
+            "ocularDischarge": "¿Secreción ocular?",
+            "skinLesions": "¿Lesiones en la piel?",
+            "allergies": "¿Alergias conocidas?"
+        },
+        "history": {
+            "title": "📒 Historial",
+            "previousSurgery": "¿Ha tenido cirugía previa?",
+            "currentMedication": "¿Está tomando algún medicamento?",
+            "vaccinesUpToDate": "¿Las vacunas están al día?",
+            "fasting12h": "¿Está en ayuno de 12 horas?"
+        },
+        "anestheticRisk": {
+            "title": "⚡ Riesgo Anestésico",
+            "question": "¿El tutor comprendió y acepta el riesgo anestésico?"
+        },
+        "observations": {
+            "label": "📝 Observaciones adicionales",
+            "placeholder": "Información relevante sobre el animal..."
+        }
+    },
+    "authorization": {
+        "title": "Término de Autorización Quirúrgica",
+        "bodyIntro": "Yo, {tutorName}, portador(a) del CPF {cpf}, en calidad de tutor(a) responsable del animal {petName}, de la especie {species}, raza {breed}, declaro que:",
+        "item1": "Respondí el cuestionario clínico con veracidad y asumo responsabilidad por la información proporcionada.",
+        "item2": "Estoy consciente de que el cuestionario de triaje es indispensable para la anestesia y que información falsa puede poner en riesgo la vida del animal.",
+        "item2Highlight": "el cuestionario de triaje es indispensable para la anestesia",
+        "item3": "Fui informado(a) sobre los riesgos inherentes al procedimiento quirúrgico y anestésico, incluyendo posibles complicaciones.",
+        "item4": "Autorizo la realización del procedimiento de esterilización en el animal identificado anteriormente.",
+        "checkbox": "Declaro que leí, comprendí y estoy de acuerdo con los términos anteriores."
+    },
+    "management": {
+        "title": "Panel de Gestión",
+        "subtitle": "Visualice agendamientos, triajes y dictámenes de la IA.",
+        "refresh": "Actualizar",
+        "stats": {
+            "schedulings": "Agendamientos",
+            "riskAlerts": "Alertas de Riesgo",
+            "aiOpinions": "Dictámenes IA"
+        },
+        "empty": "No se encontraron agendamientos.",
+        "labels": {
+            "tutor": "Tutor:",
+            "cpf": "CPF:",
+            "date": "Fecha:",
+            "status": "Estado:",
+            "riskAlert": "ALERTA DE RIESGO",
+            "viewTriage": "📋 Ver respuestas del triaje",
+            "aiOpinion": "🤖 Dictamen de la IA",
+            "aiPending": "⏳ Dictamen de la IA pendiente"
+        },
+        "booleans": {
+            "yes": "Sí",
+            "no": "No"
+        },
+        "error": {
+            "generic": "Error al cargar datos."
+        }
+    },
+    "common": {
+        "select": "Seleccione..."
+    },
+    "routes": {
+        "scheduling": "Agendamiento – SEPET",
+        "management": "Gestión – SEPET"
+    },
+    "footer": {
+        "line1": "📧 agendamiento{'@'}sepet.am.gov.br · 📞 (92) 99207-1671",
+        "line2": "📍 Av. Umberto Calderaro, 934 – Adrianópolis, Manaus-AM"
+    }
+}

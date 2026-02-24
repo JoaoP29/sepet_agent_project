@@ -1,19 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import AgendamentoView from '../views/AgendamentoView.vue'
 import GestaoView from '../views/GestaoView.vue'
+import i18n from '../i18n'
 
 const routes = [
     {
         path: '/',
         name: 'agendamento',
         component: AgendamentoView,
-        meta: { title: 'Agendamento – SEPET' },
+        meta: { titleKey: 'routes.scheduling' },
     },
     {
         path: '/gestao',
         name: 'gestao',
         component: GestaoView,
-        meta: { title: 'Gestão – SEPET' },
+        meta: { titleKey: 'routes.management' },
     },
 ]
 
@@ -23,7 +24,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to) => {
-    document.title = to.meta?.title || 'SEPET'
+    const titleKey = to.meta?.titleKey
+    document.title = titleKey ? i18n.global.t(titleKey) : 'SEPET'
 })
 
 export default router

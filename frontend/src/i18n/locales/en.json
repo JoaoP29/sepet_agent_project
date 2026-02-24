@@ -1,0 +1,152 @@
+{
+    "navbar": {
+        "title": "SEPET",
+        "subtitle": "Pet Spay/Neuter Scheduling System",
+        "scheduling": "Scheduling",
+        "management": "Management"
+    },
+    "scheduling": {
+        "title": "Spay/Neuter Scheduling",
+        "subtitle": "Fill in all the information to request the procedure.",
+        "steps": {
+            "data": "Info",
+            "triage": "Triage",
+            "authorization": "Authorization"
+        },
+        "tutor": {
+            "title": "👤 Owner Information",
+            "fullName": "Full Name",
+            "fullNamePlaceholder": "Owner's name",
+            "cpf": "CPF",
+            "cpfPlaceholder": "000.000.000-00",
+            "phone": "Phone",
+            "phonePlaceholder": "(92) 99999-9999",
+            "email": "Email",
+            "emailPlaceholder": "email{'@'}example.com"
+        },
+        "pet": {
+            "title": "🐾 Pet Information",
+            "name": "Pet Name",
+            "namePlaceholder": "Animal's name",
+            "species": "Species",
+            "breed": "Breed",
+            "breedPlaceholder": "Mixed, Labrador, etc.",
+            "size": "Size",
+            "sex": "Sex",
+            "weight": "Weight (kg)",
+            "weightPlaceholder": "0",
+            "ageYears": "Age (years)",
+            "ageYearsPlaceholder": "0",
+            "ageMonths": "Age (months)",
+            "ageMonthsPlaceholder": "0",
+            "desiredDate": "Desired Date"
+        },
+        "buttons": {
+            "nextTriage": "Next → Clinical Triage",
+            "nextAuth": "Next → Authorization",
+            "back": "← Back",
+            "confirmSend": "✅ Confirm and Submit",
+            "sending": "Submitting...",
+            "newScheduling": "New Scheduling"
+        },
+        "success": {
+            "title": "Scheduling Completed!",
+            "message": "The data was successfully submitted. The veterinarian will review the clinical triage.",
+            "protocol": "Protocol"
+        },
+        "error": {
+            "generic": "Error submitting. Please try again."
+        }
+    },
+    "triage": {
+        "title": "📋 Clinical Triage Questionnaire",
+        "subtitle": "Answer carefully — this questionnaire is essential for anesthesia.",
+        "clinicalSigns": {
+            "title": "🩺 Clinical Signs",
+            "cough": "Does the animal have a cough?",
+            "sneezing": "Does the animal sneeze?",
+            "vomiting": "Does the animal vomit?",
+            "diarrhea": "Does the animal have diarrhea?",
+            "appetiteLoss": "Has there been a loss of appetite?",
+            "weightLoss": "Has there been weight loss?",
+            "apathy": "Is the animal apathetic?"
+        },
+        "severeSigns": {
+            "title": "⚠️ Severe Signs",
+            "fainting": "Has the animal ever fainted?",
+            "seizure": "Has the animal ever had a seizure?",
+            "breathingDifficulty": "Difficulty breathing?"
+        },
+        "otherSymptoms": {
+            "title": "🔍 Other Symptoms",
+            "nasalDischarge": "Nasal discharge?",
+            "ocularDischarge": "Ocular discharge?",
+            "skinLesions": "Skin lesions?",
+            "allergies": "Known allergies?"
+        },
+        "history": {
+            "title": "📒 Medical History",
+            "previousSurgery": "Has the animal had previous surgery?",
+            "currentMedication": "Is the animal currently on medication?",
+            "vaccinesUpToDate": "Are vaccines up to date?",
+            "fasting12h": "Has the animal been fasting for 12 hours?"
+        },
+        "anestheticRisk": {
+            "title": "⚡ Anesthetic Risk",
+            "question": "Does the owner understand and accept the anesthetic risk?"
+        },
+        "observations": {
+            "label": "📝 Additional observations",
+            "placeholder": "Relevant information about the animal..."
+        }
+    },
+    "authorization": {
+        "title": "Surgical Authorization Form",
+        "bodyIntro": "I, {tutorName}, holder of CPF {cpf}, as the responsible owner of the animal {petName}, species {species}, breed {breed}, declare that:",
+        "item1": "I answered the clinical questionnaire truthfully and take responsibility for the information provided.",
+        "item2": "I am aware that the triage questionnaire is essential for anesthesia and that false information may endanger the animal's life.",
+        "item2Highlight": "the triage questionnaire is essential for anesthesia",
+        "item3": "I was informed about the inherent risks of the surgical and anesthetic procedure, including possible complications.",
+        "item4": "I authorize the spay/neuter procedure on the animal identified above.",
+        "checkbox": "I declare that I have read, understood, and agree with the terms above."
+    },
+    "management": {
+        "title": "Management Dashboard",
+        "subtitle": "View schedulings, triage results, and AI assessments.",
+        "refresh": "Refresh",
+        "stats": {
+            "schedulings": "Schedulings",
+            "riskAlerts": "Risk Alerts",
+            "aiOpinions": "AI Assessments"
+        },
+        "empty": "No schedulings found.",
+        "labels": {
+            "tutor": "Owner:",
+            "cpf": "CPF:",
+            "date": "Date:",
+            "status": "Status:",
+            "riskAlert": "RISK ALERT",
+            "viewTriage": "📋 View triage responses",
+            "aiOpinion": "🤖 AI Assessment",
+            "aiPending": "⏳ AI assessment pending"
+        },
+        "booleans": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "error": {
+            "generic": "Error loading data."
+        }
+    },
+    "common": {
+        "select": "Select..."
+    },
+    "routes": {
+        "scheduling": "Scheduling – SEPET",
+        "management": "Management – SEPET"
+    },
+    "footer": {
+        "line1": "📧 agendamento{'@'}sepet.am.gov.br · 📞 (92) 99207-1671",
+        "line2": "📍 Av. Umberto Calderaro, 934 – Adrianópolis, Manaus-AM"
+    }
+}

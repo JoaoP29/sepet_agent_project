@@ -4,13 +4,13 @@
     <div class="flex items-center justify-between">
       <div>
         <h1 class="text-3xl font-extrabold bg-gradient-to-r from-sepet-secondary to-sepet-primary-light bg-clip-text text-transparent">
-          Painel de Gestão
+          {{ $t('management.title') }}
         </h1>
-        <p class="text-sepet-text-muted mt-1">Visualize agendamentos, triagens e pareceres da IA.</p>
+        <p class="text-sepet-text-muted mt-1">{{ $t('management.subtitle') }}</p>
       </div>
       <button @click="carregar" :disabled="carregando" class="px-4 py-2 bg-sepet-secondary text-white rounded-xl font-semibold hover:bg-sepet-secondary-dark transition-all shadow-lg shadow-sepet-secondary/30 flex items-center gap-2">
         <svg v-if="carregando" class="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
-        🔄 Atualizar
+        🔄 {{ $t('management.refresh') }}
       </button>
     </div>
 
@@ -18,15 +18,15 @@
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="glass-card p-4 text-center">
         <p class="text-3xl font-bold text-sepet-primary-light">{{ agendamentos.length }}</p>
-        <p class="text-xs text-sepet-text-muted mt-1">Agendamentos</p>
+        <p class="text-xs text-sepet-text-muted mt-1">{{ $t('management.stats.schedulings') }}</p>
       </div>
       <div class="glass-card p-4 text-center">
         <p class="text-3xl font-bold text-sepet-warning">{{ alertas }}</p>
-        <p class="text-xs text-sepet-text-muted mt-1">Alertas de Risco</p>
+        <p class="text-xs text-sepet-text-muted mt-1">{{ $t('management.stats.riskAlerts') }}</p>
       </div>
       <div class="glass-card p-4 text-center">
         <p class="text-3xl font-bold text-sepet-success">{{ pareceres }}</p>
-        <p class="text-xs text-sepet-text-muted mt-1">Pareceres IA</p>
+        <p class="text-xs text-sepet-text-muted mt-1">{{ $t('management.stats.aiOpinions') }}</p>
       </div>
     </div>
 
@@ -38,7 +38,7 @@
     <!-- Empty -->
     <div v-if="!carregando && agendamentos.length === 0" class="glass-card p-12 text-center">
       <span class="text-5xl">📭</span>
-      <p class="text-sepet-text-muted mt-4">Nenhum agendamento encontrado.</p>
+      <p class="text-sepet-text-muted mt-4">{{ $t('management.empty') }}</p>
     </div>
 
     <!-- Cards -->
@@ -63,19 +63,19 @@
             </div>
             <div class="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <span class="text-sepet-text-muted">Tutor:</span>
+                <span class="text-sepet-text-muted">{{ $t('management.labels.tutor') }}</span>
                 <span class="text-sepet-text ml-1">{{ ag.nome_tutor }}</span>
               </div>
               <div>
-                <span class="text-sepet-text-muted">CPF:</span>
+                <span class="text-sepet-text-muted">{{ $t('management.labels.cpf') }}</span>
                 <span class="text-sepet-text ml-1">{{ ag.cpf_tutor }}</span>
               </div>
               <div>
-                <span class="text-sepet-text-muted">Data:</span>
+                <span class="text-sepet-text-muted">{{ $t('management.labels.date') }}</span>
                 <span class="text-sepet-text ml-1">{{ formatDate(ag.data_atendimento) }}</span>
               </div>
               <div>
-                <span class="text-sepet-text-muted">Status:</span>
+                <span class="text-sepet-text-muted">{{ $t('management.labels.status') }}</span>
                 <span
                   class="ml-1 px-2 py-0.5 rounded-full text-xs font-semibold"
                   :class="statusClass(ag.status_ia)"
@@ -95,7 +95,7 @@
                 class="bg-sepet-danger/10 border border-sepet-danger/30 rounded-xl p-3 flex items-center gap-2"
               >
                 <span class="text-xl">🚨</span>
-                <span class="text-sm font-semibold text-sepet-danger">ALERTA DE RISCO</span>
+                <span class="text-sm font-semibold text-sepet-danger">{{ $t('management.labels.riskAlert') }}</span>
               </div>
 
               <!-- Detalhes triagem -->
@@ -103,7 +103,7 @@
                 @click="toggleTriagem(ag.id)"
                 class="w-full text-left bg-sepet-bg/50 hover:bg-sepet-surface-light/30 rounded-xl p-3 transition-all text-sm"
               >
-                <span class="text-sepet-text-muted">📋 Ver respostas da triagem</span>
+                <span class="text-sepet-text-muted">{{ $t('management.labels.viewTriage') }}</span>
               </button>
               <div v-if="triagemAberta === ag.id" class="bg-sepet-bg/60 rounded-xl p-3 text-xs space-y-1">
                 <div
@@ -113,18 +113,18 @@
                 >
                   <span class="text-sepet-text-muted capitalize">{{ formatKey(key) }}</span>
                   <span :class="typeof val === 'boolean' ? (val ? 'text-sepet-warning' : 'text-sepet-success') : 'text-sepet-text'">
-                    {{ typeof val === 'boolean' ? (val ? 'Sim' : 'Não') : val }}
+                    {{ typeof val === 'boolean' ? (val ? $t('management.booleans.yes') : $t('management.booleans.no')) : val }}
                   </span>
                 </div>
               </div>
 
               <!-- Parecer IA -->
               <div v-if="getTriagem(ag.id).parecer_ia" class="bg-sepet-secondary/10 border border-sepet-secondary/30 rounded-xl p-4">
-                <p class="text-xs font-semibold text-sepet-secondary mb-1">🤖 Parecer da IA</p>
+                <p class="text-xs font-semibold text-sepet-secondary mb-1">{{ $t('management.labels.aiOpinion') }}</p>
                 <p class="text-sm text-sepet-text leading-relaxed">{{ getTriagem(ag.id).parecer_ia }}</p>
               </div>
               <div v-else class="bg-sepet-surface/50 rounded-xl p-3 text-center">
-                <p class="text-xs text-sepet-text-muted">⏳ Parecer da IA pendente</p>
+                <p class="text-xs text-sepet-text-muted">{{ $t('management.labels.aiPending') }}</p>
               </div>
             </div>
           </div>
@@ -136,7 +136,10 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { listarAgendamentos, listarTriagens } from '../services/api'
+
+const { t, locale } = useI18n()
 
 const agendamentos = ref([])
 const triagens = ref([])
@@ -157,7 +160,6 @@ function toggleTriagem(agId) {
 
 function filterTriagemResponses(respostas) {
   if (!respostas) return {}
-  // Exclui os metadados internos (_meta_pet, _meta_tutor)
   const filtered = {}
   for (const [key, val] of Object.entries(respostas)) {
     if (!key.startsWith('_meta')) {
@@ -169,7 +171,7 @@ function filterTriagemResponses(respostas) {
 
 function formatDate(d) {
   if (!d) return '—'
-  return new Date(d).toLocaleDateString('pt-BR')
+  return new Date(d).toLocaleDateString(locale.value)
 }
 
 function formatKey(key) {
@@ -193,7 +195,7 @@ async function carregar() {
     agendamentos.value = ag
     triagens.value = tr
   } catch (e) {
-    erro.value = e.response?.data?.detail || 'Erro ao carregar dados.'
+    erro.value = e.response?.data?.detail || t('management.error.generic')
   } finally {
     carregando.value = false
   }

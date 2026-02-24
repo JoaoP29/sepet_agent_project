@@ -9,7 +9,7 @@
       :required="required"
       class="w-full bg-sepet-bg border border-sepet-surface-light rounded-lg px-4 py-2.5 text-sepet-text focus:outline-none focus:ring-2 focus:ring-sepet-primary/50 focus:border-sepet-primary transition-all"
     >
-      <option value="" disabled>Selecione...</option>
+      <option value="" disabled>{{ $t('common.select') }}</option>
       <option v-for="opt in options" :key="opt" :value="opt">{{ opt }}</option>
     </select>
   </div>
